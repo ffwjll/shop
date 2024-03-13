@@ -145,3 +145,4 @@ data
 *.css.map
 log.txt
 !/.gitignore
+.DS_Store
