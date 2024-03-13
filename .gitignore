@@ -132,7 +132,7 @@ GitHub.sublime-settings
 !**/migrations
 !**/migrations/__init__.py
 
-# MINIO POSTGRES DATA
+# MINIO  POSTGRES DATA
 data/
 **data/
 data
