@@ -1,0 +1,42 @@
+.input::placeholder {
+    color: #949494;
+    font-weight: 500;
+}
+
+/*выравнивание*/
+.frc {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+}
+
+.fcc {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.frcc {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.fccc {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/*иконки темы*/
+.sun-img {
+    transition: opacity 600ms ease, margin-left 600ms ease;
+}
+
+.moon-img {
+    transition: opacity 600ms ease, margin-left 600ms ease;
+}
+
+/*тема*/

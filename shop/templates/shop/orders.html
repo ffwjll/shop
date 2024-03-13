@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}{% load static %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+    <h1 class="text-center mb-2 mt-2"></h1>
+    <div class="d-flex justify-content-center gap-2">
+        {% for order in orders %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ order.product.img.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="mb-0 fs-5 mb-1">Name: {{ order.product.name }} </p>
+                    <p class="fs-5 mb-1">Delivery address: {{ order.delivery_address }}</p>
+                    <p class="mb-0 fs-5">Count: {{ order.count }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}{% load static %}
+{% block title %}Create order{% endblock %}
+{% block content %}
+    <div class="d-flex justify-content-center mt-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                    <h4 class="fs-5">{{ product.name }}</h4>
+                <form action="" method="post" class="d-flex flex-column gap-2">
+                    {% csrf_token %}
+                    <input class="input form-control" name="delivery_address" type="text" placeholder="Address">
+                    <input class="input form-control" name="count" type="number" placeholder="Count">
+                    <button class="btn btn-secondary" type="submit">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

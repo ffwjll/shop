@@ -1,0 +1,71 @@
+{% load static %}
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid frcc">
+            <div class=" frcc gap-2">
+                {% if not request.user.is_authenticated %}
+                    <div class="rounded-circle" style="width: 50px; height: 50px; background: white">
+                        <img src="{% static 'core/img/logotip.png' %}" style="width: 100%" class="p-1" alt="">
+                    </div>
+                {% else %}
+                    <div class="rounded-circle" style="width: 45px; height: 45px; background: white">
+                        <img src="{{ user.avatar.url }}" style="width: 100%; padding-top: 1px" class="rounded-circle"
+                             alt="">
+                    </div>
+                {% endif %}
+                {% if not request.user.is_authenticated %}
+                    <p class="navbar-brand m-0">Shast</p>
+                {% else %}
+                    <p class="navbar-brand m-0">User name</p>
+                {% endif %}
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-grow-0" id="navbarNavAltMarkup">
+                <div class="navbar-nav gap-2 m-2">
+                    {# страницы сайта #}
+                    <div class="frc">
+                        <a class="nav-link fcc pe-0" aria-current="page" href="{% url 'catalog' %}">Catalog</a>
+                        <a class="nav-link fcc" href="{% url 'orders' %}">Orders</a>
+                    </div>
+                    {# кнопки меню #}
+                    <div class="gap-2 frc m-2">
+                        {% if not request.user.is_authenticated %}
+                            <button class="btn btn-secondary ps-2 pe-2 pb-1 pt-1">
+                                <a class="text-decoration-none text-white" href="{% url 'signin' %}">Sign In</a>
+                            </button>
+                            <button class="btn ps-2 pe-2 pb-1 pt-1" style="background: #b35d17">
+                                <a class="text-decoration-none text-white" href="{% url 'signup' %}">Sign Up</a>
+                            </button>
+                        {% else %}
+                            <button class="btn btn-secondary ps-2 pe-2 pb-1 pt-1">
+                                <a class="text-decoration-none text-white" href="{% url 'profile' %}">Profile</a>
+                            </button>
+                            <button class="btn ps-2 pe-2 pb-1 pt-1" style="background: #b35d17">
+                                <a class="text-decoration-none text-white" href="{% url 'signout' %}">Sign Out</a>
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+                {# переключение темы #}
+                <div class="btn-menu d-flex flex-row justify-content-center">
+                    <div class="btn-theme btn btn-secondary p-0"
+                         style="width: 65px; height: 32px; border-radius: 25px;">
+                        <div class="icon-system">
+                            <div class="sun-img fccc"
+                                 style="background: white; border-radius: 25px; width: 30px; height: 30px; position: absolute;">
+                                <img src="{% static 'core/img/sun.png' %}" alt="" style="width: 20px; height: 20px;">
+                            </div>
+                            <div class="moon-img fccc"
+                                 style="background: white; border-radius: 25px; width: 30px; height: 30px;">
+                                <img src="{% static 'core/img/moon.png' %}" alt="" style="width: 17px; height: 17px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

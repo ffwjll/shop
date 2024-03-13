@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <script defer src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+    <script defer src="{% static 'core/js/theme.js' %}"></script>
+</head>
+<body data-bs-theme="dark">
+{% include 'core/includes/header.html' %}
+<main>{% block content %}{% endblock %}</main>
+</body>
+</html>

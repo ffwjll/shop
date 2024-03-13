@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}{% load static %}
+{% block title %}catalog{% endblock %}
+{% block content %}
+    <h1 class="text-center mb-2 mt-2">Catalog</h1>
+    <div class="d-flex justify-content-center gap-2">
+        {% for product in products %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ product.img.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    {# цена #}
+                    <div class="d-flex gap-1">
+                        <span class="fs-4 fw-bold"> {{ product.price }}₽</span>
+                        <span class="text-danger mb-auto">-{{ product.discount }}%</span>
+                    </div>
+                    <h3 class="fs-5">{{ product.name }}</h3>
+                    {# рейтинг продукта #}
+                    <div class="d-flex flex-row mb-2 gap-1">
+                        {% for i in '.....' %}
+                            {% if forloop.counter <= product.rating %}
+                                <img class="d-flex" src="{% static 'core/img/stars.png' %}"
+                                     style="width: 25px; height: 25px" alt="">
+                            {% else %}
+                                <img class="d-flex" src="{% static 'core/img/stars.png' %}" alt=""
+                                     style="width: 25px; height: 25px; filter: grayscale(1)">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {# подробнее о продукте #}
+                    <a href="{% url 'product_detail' id=product.id %}"
+                       class="btn-more-details btn btn-close-white mb-2 border-light-subtle border-2"
+                       style="width: 254px">More details</a>
+                    <p class="card-text fs-6 text-secondary"
+                       style="width: 250px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis">{{ product.desc }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
